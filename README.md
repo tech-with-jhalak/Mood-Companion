@@ -78,7 +78,8 @@ CSS is used to style the entire application and create the neon-themed visual de
 ### JavaScript
 JavaScript powers the functionality and interactivity of the app. It controls screen navigation, mood selection, random jokes and quotes, feedback tracking, localStorage saving, chart updates, notification handling, and dynamic rendering of the mood log and analytics. It is the main logic layer that makes the app interactive and responsive to user actions.
 
-### DEMO LINK- http://127.0.0.1:3000/index.html?vscode-livepreview=true
+### DEMO LINK- 
+http://127.0.0.1:3000/index.html?vscode-livepreview=true
 
 ## **🎦DEMO to uplift your mood~**
 
