@@ -1,0 +1,461 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  background: #080818;
+}
+
+#app {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  background: #080818;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+}
+
+.glitter-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+    radial-gradient(rgba(180, 120, 255, 0.12) 1px, transparent 1px);
+  background-size: 38px 38px, 61px 61px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.orb1 {
+  width: 320px;
+  height: 320px;
+  background: #7c3aed;
+  top: -80px;
+  left: -60px;
+}
+
+.orb2 {
+  width: 260px;
+  height: 260px;
+  background: #06b6d4;
+  bottom: -60px;
+  right: -40px;
+}
+
+.orb3 {
+  width: 180px;
+  height: 180px;
+  background: #ec4899;
+  top: 40%;
+  left: 55%;
+}
+
+.screen {
+  position: relative;
+  z-index: 1;
+  padding: 40px 24px 80px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.screen.hidden {
+  display: none;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f9a8d4, #a78bfa, #67e8f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  margin-bottom: 4px;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #e0d7ff;
+  text-shadow: 0 0 12px rgba(167, 139, 250, 0.5);
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #c4b5fd;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.glitter-label {
+  font-size: 16px;
+  color: #c4b5fd;
+  text-shadow: 0 0 8px #a78bfa;
+}
+
+.neon-input {
+  padding: 12px 18px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  border-radius: 12px;
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  width: 100%;
+  max-width: 320px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(103, 232, 249, 0.15);
+  transition: box-shadow 0.3s;
+}
+
+.neon-input:focus {
+  box-shadow: 0 0 20px rgba(103, 232, 249, 0.35), 0 0 8px rgba(167, 139, 250, 0.3);
+}
+
+.neon-input::placeholder {
+  color: #64748b;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.neon-btn {
+  padding: 11px 22px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #7c3aed, #0891b2);
+  box-shadow: 0 0 14px rgba(103, 232, 249, 0.25), 0 0 6px rgba(124, 58, 237, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 24px rgba(103, 232, 249, 0.45), 0 0 16px rgba(236, 72, 153, 0.3);
+}
+
+.neon-btn.pink {
+  background: linear-gradient(135deg, #db2777, #7c3aed);
+}
+
+.neon-btn.teal {
+  background: linear-gradient(135deg, #0891b2, #065f46);
+}
+
+.neon-btn.outline {
+  background: transparent;
+  border: 1px solid rgba(167, 139, 250, 0.5);
+  color: #c4b5fd;
+  box-shadow: none;
+}
+
+.neon-btn.outline:hover {
+  background: rgba(167, 139, 250, 0.1);
+  box-shadow: 0 0 14px rgba(167, 139, 250, 0.3);
+}
+
+.back-btn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  background: transparent;
+  border: none;
+  color: #67e8f9;
+  font-size: 22px;
+  cursor: pointer;
+  text-shadow: 0 0 8px #67e8f9;
+  padding: 4px 8px;
+}
+
+.mood-emoji-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.mood-chip {
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  background: rgba(255, 255, 255, 0.05);
+  color: #e0d7ff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: "Poppins", sans-serif;
+}
+
+.mood-chip:hover,
+.mood-chip.selected {
+  background: rgba(167, 139, 250, 0.25);
+  border-color: #a78bfa;
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.3);
+}
+
+.output-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 16px;
+  padding: 20px 24px;
+  max-width: 360px;
+  width: 100%;
+  text-align: left;
+  line-height: 1.7;
+  font-size: 15px;
+  color: #e2e8f0;
+  box-shadow: 0 0 20px rgba(103, 232, 249, 0.08);
+}
+
+.output-card .tag {
+  font-size: 11px;
+  color: #a78bfa;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.loading-dots::after {
+  content: " .";
+  animation: dots 1.2s steps(3, end) infinite;
+}
+
+@keyframes dots {
+  0% {
+    content: " .";
+  }
+
+  33% {
+    content: " . .";
+  }
+
+  66% {
+    content: " . . .";
+  }
+}
+
+.chart-wrap {
+  width: 100%;
+  max-width: 360px;
+  position: relative;
+}
+
+.notification-prompt {
+  margin: 8px 0 4px;
+  padding: 16px;
+  width: 100%;
+  max-width: 360px;
+  background: rgba(167, 139, 250, 0.1);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 12px;
+}
+
+.analytics-section {
+  margin-top: 8px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.section-title {
+  margin-bottom: 16px;
+  color: #e0d7ff;
+  text-shadow: 0 0 12px rgba(167, 139, 250, 0.5);
+}
+
+.insights-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px 0 8px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.insight-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.insight-item:last-child {
+  border-bottom: none;
+}
+
+.insight-label {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.insight-value {
+  color: #67e8f9;
+  font-weight: 600;
+  font-size: 16px;
+  text-shadow: 0 0 8px rgba(103, 232, 249, 0.5);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  width: 100%;
+  max-width: 360px;
+}
+
+.tracker-table {
+  width: 100%;
+  max-width: 360px;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.tracker-table th {
+  color: #a78bfa;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(167, 139, 250, 0.2);
+  text-align: left;
+}
+
+.tracker-table td {
+  padding: 7px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+}
+
+.tracker-table tr:last-child td {
+  border-bottom: none;
+}
+
+.mood-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-good {
+  background: rgba(56, 189, 248, 0.2);
+  color: #7dd3fc;
+}
+
+.badge-better {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+}
+
+.badge-worst {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+.emoji-burst {
+  position: absolute;
+  font-size: 28px;
+  pointer-events: none;
+  animation: burst 1s ease-out forwards;
+  z-index: 999;
+}
+
+@keyframes burst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(0.3);
+  }
+}
+
+.progress-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(167, 139, 250, 0.3);
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: #a78bfa;
+  box-shadow: 0 0 8px #a78bfa;
+}
+
+.inline-gap {
+  margin-top: 8px;
+}
+
+.top-gap-sm {
+  margin-top: 4px;
+}
+
+.top-gap {
+  margin-top: 8px;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .screen {
+    padding: 30px 16px 60px;
+  }
+
+  .mood-chip {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .neon-input {
+    max-width: 280px;
+  }
+}

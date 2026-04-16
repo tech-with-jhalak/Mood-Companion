@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌸 Mood Companion 🌸</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <div class="glitter-bg"></div>
+    <div class="glow-orb orb1"></div>
+    <div class="glow-orb orb2"></div>
+    <div class="glow-orb orb3"></div>
+
+    <div class="screen" id="s0">
+      <h1>🌸 Mood Companion 🌸</h1>
+      <div class="progress-dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <p class="glitter-label">How can I call you?</p>
+      <input class="neon-input" id="nameInput" placeholder="Your name..." maxlength="30" />
+      <div class="btn-row">
+        <button class="neon-btn" onclick="goName()">Next ✨</button>
+      </div>
+    </div>
+
+    <div class="screen hidden" id="s1">
+      <button class="back-btn" onclick="goTo(0)">⬅</button>
+      <h2 id="moodGreet"></h2>
+      <div class="progress-dots">
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <p class="glitter-label">How are you feeling right now?</p>
+      <div class="mood-emoji-row" id="moodChips"></div>
+      <p class="subtitle inline-gap">or type your own:</p>
+      <input class="neon-input" id="moodInput" placeholder="Describe your mood..." maxlength="80" />
+      <div class="btn-row">
+        <button class="neon-btn" onclick="goMood()">Next ✨</button>
+      </div>
+    </div>
+
+    <div class="screen hidden" id="s2">
+      <button class="back-btn" onclick="goTo(1)">⬅</button>
+      <h2 id="choiceGreet"></h2>
+      <div class="progress-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+      </div>
+      <p class="glitter-label">What would you like?</p>
+      <div class="btn-row">
+        <button class="neon-btn pink" onclick="goChoice('joke')">😂 Joke</button>
+        <button class="neon-btn" onclick="goChoice('quote')">💬 Quote</button>
+        <button class="neon-btn teal" onclick="goChoice('music')">🎵 Music</button>
+      </div>
+    </div>
+
+    <div class="screen hidden" id="s3">
+      <button class="back-btn" onclick="goTo(2)">⬅</button>
+      <div class="progress-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+      </div>
+      <p class="glitter-label" id="outputTag">Here's something for you ✨</p>
+      <div class="output-card" id="outputCard">
+        <div class="tag" id="outputType"></div>
+        <div id="outputText">Loading<span class="loading-dots"></span></div>
+      </div>
+      <div class="btn-row top-gap-sm">
+        <button class="neon-btn outline" onclick="regenerate()">🔄 Another one</button>
+        <button class="neon-btn" onclick="goTo(4)">How do I feel now? 🌟</button>
+      </div>
+    </div>
+
+    <div class="screen hidden" id="s4">
+      <button class="back-btn" onclick="goTo(3)">⬅</button>
+      <h2>How do you feel now?</h2>
+      <div class="btn-row">
+        <button class="neon-btn teal" onclick="logFeedback('good')">😊 Good</button>
+        <button class="neon-btn" onclick="logFeedback('better')">✨ Better</button>
+        <button class="neon-btn pink" onclick="logFeedback('worst')">😔 Worst</button>
+      </div>
+
+      <div class="notification-prompt" id="notificationPrompt">
+        <p class="subtitle">Get daily mood check-in reminders</p>
+        <button class="neon-btn outline" onclick="requestNotifications()">🔔 Enable Reminders</button>
+      </div>
+
+      <div class="analytics-section">
+        <h3 class="section-title">Your Mood Journey</h3>
+        <div class="chart-wrap">
+          <canvas id="pieChart" height="200"></canvas>
+        </div>
+        <p class="subtitle" id="emptyMessage">Start tracking your mood to see insights!</p>
+
+        <div class="insights-card" id="insightsCard">
+          <div class="insight-item">
+            <span class="insight-label">Total Check-ins:</span>
+            <span class="insight-value" id="totalCheckins">0</span>
+          </div>
+          <div class="insight-item">
+            <span class="insight-label">Most Common Mood:</span>
+            <span class="insight-value" id="commonMood">N/A</span>
+          </div>
+          <div class="insight-item">
+            <span class="insight-label">Positive Rate:</span>
+            <span class="insight-value" id="positiveRate">0%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-wrap" id="logTableContainer">
+        <table class="tracker-table">
+          <thead>
+            <tr>
+              <th>Date &amp; Time</th>
+              <th>Mood in</th>
+              <th>Feeling after</th>
+            </tr>
+          </thead>
+          <tbody id="logBody"></tbody>
+        </table>
+      </div>
+
+      <div class="btn-row top-gap">
+        <button class="neon-btn outline" onclick="goTo(0)">Start over 🌸</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
