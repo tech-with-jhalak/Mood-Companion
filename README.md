@@ -113,3 +113,4 @@ Users can submit emotional feedback using Good, Better, or Worst. The app then u
 
 
 ## **Project Structure**
+<img width="940" height="1007" alt="PROJECT STRUCTURE" src="https://github.com/user-attachments/assets/25e615e8-8089-4ac3-a0c2-44ba220f49ac" />
